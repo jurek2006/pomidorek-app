@@ -1,0 +1,25 @@
+{
+  "name": "pomidorek-app",
+  "version": "1.0.0",
+  "description": "Timer metody pomodoro z użyciem Socket.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jurek2006/pomidorek-app.git"
+  },
+  "keywords": [
+    "pomodoro",
+    "timer",
+    "Node",
+    "WebSocket"
+  ],
+  "author": "Jurek Skowron",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jurek2006/pomidorek-app/issues"
+  },
+  "homepage": "https://github.com/jurek2006/pomidorek-app#readme"
+}
