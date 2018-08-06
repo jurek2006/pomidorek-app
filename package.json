@@ -4,7 +4,12 @@
   "description": "Timer metody pomodoro z użyciem Socket.io",
   "main": "index.js",
   "scripts": {
+    "start": "node server/server.js",
+    "start-watch": "nodemon server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "10.7.0"
   },
   "repository": {
     "type": "git",
@@ -21,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/jurek2006/pomidorek-app/issues"
   },
-  "homepage": "https://github.com/jurek2006/pomidorek-app#readme"
+  "homepage": "https://github.com/jurek2006/pomidorek-app#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
