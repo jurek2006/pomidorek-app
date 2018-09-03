@@ -16,36 +16,55 @@ const timerPauseBtns = timerElement.querySelectorAll('.timer__pause');
 const timerStopBtns = timerElement.querySelectorAll('.timer__stop');
 
 const timer = {
+    setTime: 15,
     startTime: false,
+    endTime: false,
     timeout: false,
     start: () => {
-        timer.time = new Date();
-        timerTime.textContent = timer.time;
-        timer.timeout = setTimeout(timer.start, 500);
+        console.log('Timer started');
+        // wyliczenie czasu zakończenia timera
+        timer.startTime = new Date();
+        timer.endTime = new Date(timer.startTime.getTime() + timer.setTime * 1000);
+        timer.step();
     },
     stop: () => {
+        console.log('Timer stopped');
         clearTimeout(timer.timeout);
+        timer.startTime = false;
+        timer.endTime = false;
         timerTime.textContent = '00:00';
     },
     pause: () => {
+        console.log('Timer paused');
+        timer.setTime = timer.secondsToEnd();
         clearTimeout(timer.timeout);
         timerTime.textContent += ' PAUSED';
+    },
+    step: () => {
+        // porównanie czasu aktualnego i czasu zakończenia timera
+        const timeLeft = timer.secondsToEnd();
+        if(timeLeft >= 0){
+            timerTime.textContent = timeLeft;
+            timer.timeout = setTimeout(timer.step, 500);
+        } else {
+            console.log('stopped');
+        }
+    },
+    secondsToEnd: () => {
+        return Math.ceil((timer.endTime - new Date()) / 1000);
     }
 }
 
 // przypisanie obsługi zdarzeń do przycisków
 timerStartBtns.forEach(button => button.addEventListener('click', () => {
-    timer.start();
-    console.log('start');
+    timer.start(15);
 }));
 
 timerPauseBtns.forEach(button => button.addEventListener('click', () => {
     timer.pause();
-    console.log('pause');
 }));
 
 timerStopBtns.forEach(button => button.addEventListener('click', () => {
     timer.stop();
-    console.log('stop');
 }));
 
