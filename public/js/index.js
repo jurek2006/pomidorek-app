@@ -57,14 +57,40 @@ const timer = {
 
 // przypisanie obsługi zdarzeń do przycisków
 timerStartBtns.forEach(button => button.addEventListener('click', () => {
+    socket.emit('startTimer', {
+        startTime: timer.startTime,
+        endTime: timer.endTime,
+        setTime: timer.setTime
+    });
     timer.start(15);
 }));
 
 timerPauseBtns.forEach(button => button.addEventListener('click', () => {
     timer.pause();
+    socket.emit('pauseTimer', {
+        startTime: timer.startTime,
+        endTime: timer.endTime,
+        setTime: timer.setTime
+    });
 }));
 
 timerStopBtns.forEach(button => button.addEventListener('click', () => {
     timer.stop();
+    socket.emit('stopTimer', {
+        startTime: timer.startTime,
+        endTime: timer.endTime,
+        setTime: timer.setTime
+    });
 }));
 
+socket.on('startTimerFromOutside', outsideTimer => {
+    timer.start();
+});
+
+socket.on('stopTimerFromOutside', outsideTimer => {
+    timer.stop();
+});
+
+socket.on('pauseTimerFromOutside', outsideTimer => {
+    timer.pause();
+});

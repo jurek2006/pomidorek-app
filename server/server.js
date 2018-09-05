@@ -18,6 +18,21 @@ io.on('connection', socket => {
     socket.on('disconnect', () => {
         console.log('Client disconnected');
     });
+
+    socket.on('startTimer', (timer) => {
+        console.log('timer started', timer);
+        socket.broadcast.emit('startTimerFromOutside', timer);
+    });
+
+    socket.on('stopTimer', (timer) => {
+        console.log('timer stopped', timer);
+        socket.broadcast.emit('stopTimerFromOutside', timer);
+    });
+
+    socket.on('pauseTimer', (timer) => {
+        console.log('timer paused', timer);
+        socket.broadcast.emit('pauseTimerFromOutside', timer);
+    });
 });
 
 if(!module.parent){
