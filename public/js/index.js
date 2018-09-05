@@ -1,19 +1,30 @@
 const socket = io();
 
-socket.on('connect', () => {
-    console.log('Connected to server');
+socket.on("connect", () => {
+    console.log("Connected to server");
 });
-socket.on('disconnect', () => {
-    console.log('Disconnected from server');
+socket.on("disconnect", () => {
+    console.log("Disconnected from server");
 });
 
+const noSleep = new NoSleep();
+function enableNoSleep() {
+    noSleep.enable();
+    document.removeEventListener("click", enableNoSleep, false);
+}
 
+const noSleepOn = document.querySelector(".noSleepOn");
+noSleepOn.addEventListener("click", enableNoSleep, false);
+const noSleepOff = document.querySelector(".noSleepOff");
+noSleepOff.addEventListener("click", () => {
+    noSleep.disable();
+});
 
-const timerElement = document.querySelector('#timer');
-const timerTime = timerElement.querySelector('.time');
-const timerStartBtns = timerElement.querySelectorAll('.timer__start');
-const timerPauseBtns = timerElement.querySelectorAll('.timer__pause');
-const timerStopBtns = timerElement.querySelectorAll('.timer__stop');
+const timerElement = document.querySelector("#timer");
+const timerTime = timerElement.querySelector(".time");
+const timerStartBtns = timerElement.querySelectorAll(".timer__start");
+const timerPauseBtns = timerElement.querySelectorAll(".timer__pause");
+const timerStopBtns = timerElement.querySelectorAll(".timer__stop");
 
 const timer = {
     startTime: false,
@@ -25,27 +36,32 @@ const timer = {
     },
     stop: () => {
         clearTimeout(timer.timeout);
-        timerTime.textContent = '00:00';
+        timerTime.textContent = "00:00";
     },
     pause: () => {
         clearTimeout(timer.timeout);
-        timerTime.textContent += ' PAUSED';
+        timerTime.textContent += " PAUSED";
     }
-}
+};
 
 // przypisanie obsługi zdarzeń do przycisków
-timerStartBtns.forEach(button => button.addEventListener('click', () => {
-    timer.start();
-    console.log('start');
-}));
+timerStartBtns.forEach(button =>
+    button.addEventListener("click", () => {
+        timer.start();
+        console.log("start");
+    })
+);
 
-timerPauseBtns.forEach(button => button.addEventListener('click', () => {
-    timer.pause();
-    console.log('pause');
-}));
+timerPauseBtns.forEach(button =>
+    button.addEventListener("click", () => {
+        timer.pause();
+        console.log("pause");
+    })
+);
 
-timerStopBtns.forEach(button => button.addEventListener('click', () => {
-    timer.stop();
-    console.log('stop');
-}));
-
+timerStopBtns.forEach(button =>
+    button.addEventListener("click", () => {
+        timer.stop();
+        console.log("stop");
+    })
+);
