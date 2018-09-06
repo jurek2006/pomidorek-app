@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pomidorek App</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
-    <h1>Witaj w Pomidorek App</h1>
-    <div id="timer">
+    <h1>Pomidorek App</h1>
+    <div id="timer" class="hidden">
         <p class="time">00:00</p>
-        <button class="timer__start" type="button">Start</button> 
-        <button class="timer__pause" type="button">Pause</button> 
-        <button class="timer__stop" type="button">Stop</button> 
+        <button class="timer__start" type="button">Start</button>
+        <button class="timer__pause" type="button">Pause</button>
+        <button class="timer__stop" type="button">Stop</button>
+    </div>
+    <div class="taskPicker">
+        <ul>
+            <li><button class="taskPicker__task" data-task="node">Node</button></li>
+            <li><button class="taskPicker__task" data-task="react">React</button></li>
+            <li><button class="taskPicker__task" data-task="medica">Medica</button></li>
+            <li><button class="taskPicker__task" data-task="pisanie">Pisanie</button></li>
+            <li><button class="taskPicker__task" data-task="organizacyjne">Organizacyjne</button></li>
+            <li><button class="taskPicker__task" data-task="inne">Inne</button></li>
+        </ul>
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/index.js"></script>
 </body>
+
 </html>

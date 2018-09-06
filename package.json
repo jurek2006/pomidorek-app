@@ -1,34 +1,34 @@
 {
-  "name": "pomidorek-app",
-  "version": "1.0.0",
-  "description": "Timer metody pomodoro z użyciem Socket.io",
-  "main": "index.js",
-  "scripts": {
-    "start": "node server/server.js",
-    "start-watch": "nodemon server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "engines": {
-    "node": "10.7.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jurek2006/pomidorek-app.git"
-  },
-  "keywords": [
-    "pomodoro",
-    "timer",
-    "Node",
-    "WebSocket"
-  ],
-  "author": "Jurek Skowron",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jurek2006/pomidorek-app/issues"
-  },
-  "homepage": "https://github.com/jurek2006/pomidorek-app#readme",
-  "dependencies": {
-    "express": "^4.16.3",
-    "socket.io": "^2.1.1"
-  }
+    "name": "pomidorek-app",
+    "version": "1.0.0",
+    "description": "Timer metody pomodoro z użyciem Socket.io",
+    "main": "index.js",
+    "scripts": {
+        "start": "node server/server.js",
+        "start-watch": "nodemon server/server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "engines": {
+        "node": "10.7.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jurek2006/pomidorek-app.git"
+    },
+    "keywords": [
+        "pomodoro",
+        "timer",
+        "Node",
+        "WebSocket"
+    ],
+    "author": "Jurek Skowron",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/jurek2006/pomidorek-app/issues"
+    },
+    "homepage": "https://github.com/jurek2006/pomidorek-app#readme",
+    "dependencies": {
+        "express": "^4.16.3",
+        "socket.io": "^2.1.1"
+    }
 }
